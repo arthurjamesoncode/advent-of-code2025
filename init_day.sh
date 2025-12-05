@@ -55,4 +55,10 @@ echo "$OUTPUT_CONTENT" > "day$x/output.hs"
 touch "day$x/input.txt"
 touch "day$x/test.txt"
 
+read -r -d '' NEXT_DAY_CONTENT << END
+cd ..
+bash init_day.sh
+END
+echo "$OUTPUT_CONTENT" > "day$x/next_day.sh"
+
 code "day$x"
