@@ -1,4 +1,4 @@
-module Part1 (part1) where
+module Part1 (part1, get_accessible) where
 
 import Data.Array
 import Debug.Trace
