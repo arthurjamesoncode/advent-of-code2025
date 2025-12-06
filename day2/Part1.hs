@@ -3,7 +3,7 @@ module Part1 (part1) where
 import Data.List 
 import Parse (parse)
 
--- part1 :: String -> Int
+part1 :: String -> Int
 part1 input = 
   foldl' (\acc range -> 
     let
@@ -26,11 +26,10 @@ is_invalid str =
 
 next_invalid :: String -> String
 next_invalid str = 
-  show (front + 1) ++ show (back + 1)
+  show (front + 1) ++ show (front + 1)
   where
     half  = (length str) `div` 2 
     front = read . take half $ str :: Int
-    back  = read . drop half $ str :: Int
 
 invalids_can_exist :: (Int, Int) -> Bool
 invalids_can_exist (r_min, r_max) =
