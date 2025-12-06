@@ -59,6 +59,6 @@ read -r -d '' NEXT_DAY_CONTENT << END
 cd ..
 bash init_day.sh
 END
-echo "$OUTPUT_CONTENT" > "day$x/next_day.sh"
+echo "$NEXT_DAY_CONTENT" > "day$x/next_day.sh"
 
 code "day$x"
