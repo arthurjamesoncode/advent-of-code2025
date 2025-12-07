@@ -1,4 +1,4 @@
-module Part1 (part1) where
+module Part1 (part1, beam_on_splitter, get_start) where
 
 import Data.Array
 import Parse (parse, Grid)
