@@ -5,6 +5,8 @@ import Parse (parse)
 
 --Out of indignity I have commented out the code I was trying to get to work. 
 --I did get it to work on the test case, but not the full input.
+--Turns out a fucking brute force algorithm is sufficient to just do everything. Just takes like 10 seconds.
+--At this, moment in time. I actually would like the sweet release of death. FUCK ME.
 part2 :: String -> Int
 part2 input =
   foldl' (\acc range ->
