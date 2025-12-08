@@ -1,13 +1,13 @@
-module Part1 (part1) where
+module Part1 (part1, get_pairs, sort_pairs, add_pair_to_circuits) where
 
 import Data.List
 import Parse (parse, Point)
 
--- part1 :: String -> Int
+part1 :: String -> Int
 part1 input = product . take 3 . sortBy (\a b -> compare b a) . map length $ circuits
   where
     points          = parse input
-    num_pairs       = if (length . lines $ input) > 20 then 1000 else 10
+    num_pairs       = if length points > 20 then 1000 else 10
     sorted_pairs    = sortBy sort_pairs . get_pairs $ points
     shortest        = take num_pairs sorted_pairs
     circuits        = foldl' add_pair_to_circuits [] shortest
@@ -30,9 +30,6 @@ add_pair_to_circuits circuits (point1, point2) =
                         then new_circuit:filter (\circuit -> not (point1 `elem` circuit || point2 `elem` circuit)) circuits
                         else circuits
   in new_circuits
-
-uniq [] = []
-uniq (x:xs) = x:(uniq . filter (/=x) $ xs)
 
 get_pairs :: [Point] -> [(Point, Point)]
 get_pairs []     = []
