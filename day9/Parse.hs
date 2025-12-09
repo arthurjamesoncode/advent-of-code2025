@@ -4,7 +4,7 @@ parse :: String -> [(Int, Int)]
 parse input = map get_point . lines $ input
 
 get_point :: String -> (Int, Int)
-get_point str = (row, col)
+get_point str = (col, row)
   where
     (front, back) = span (/=',') str
     col           = read front

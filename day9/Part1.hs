@@ -1,4 +1,4 @@
-module Part1 (part1) where
+module Part1 (part1, get_pairs, get_area) where
 
 import Data.List
 import Parse (parse)
