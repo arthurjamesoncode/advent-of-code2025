@@ -8,8 +8,7 @@ type Point = (Int, Int)
 type Edge = (Point, Point)
 type Bounds = (Point, Point)
 
--- part2 :: String -> Int
--- Again I have given up with haskell. Did this one in python instead of JS.
+part2 :: String -> Int
 part2 input = get_max_area pairs edges
   where
     points      = parse input
