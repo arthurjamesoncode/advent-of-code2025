@@ -7,8 +7,8 @@ main = do
 
   putStrLn $ "Part 1:"
   putStrLn $ "Test  " ++ (show . part1 $ test)
-  putStrLn $ "Input " ++ (show . part1 $ input) ++ "\n"
+  -- putStrLn $ "Input " ++ (show . part1 $ input) ++ "\n"
 
   putStrLn $ "Part 2:"
   putStrLn $ "Test  " ++ (show . part2 $ test)
-  putStrLn $ "Input " ++ (show . part2 $ input) ++ "\n"
+  -- putStrLn $ "Input " ++ (show . part2 $ input) ++ "\n"

@@ -1,4 +1,4 @@
-module Part1 (part1) where
+module Part1 (part1, get_pairs) where
 
 import Debug.Trace
 import Data.Bits
@@ -12,12 +12,13 @@ part1 input =sum . map get_fewest_presses $ instructions
 get_fewest_presses :: Instruction -> Int
 get_fewest_presses instruction = get_fewest_presses_helper instruction [0] 0 
 
+get_fewest_presses_helper :: Instruction -> [Int] -> Int -> Int 
 get_fewest_presses_helper instruction values presses 
   | any (==target) possible = presses + 1
-  | otherwise               = get_fewest_presses_helper instruction possible $ (presses + 1)
+  | otherwise               = get_fewest_presses_helper instruction possible $! (presses + 1)
   where
-    (target, buttons, _) = instruction
-    possible             = get_new_values buttons values 
+    (target, buttons) = instruction
+    possible          = get_new_values buttons values 
 
 get_new_values :: [Int] -> [Int] -> [Int]
 get_new_values buttons values =
