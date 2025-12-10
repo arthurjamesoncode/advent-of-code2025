@@ -1,7 +1,7 @@
 module Part2 (part2) where
 
 import Data.List
-import Part1 (get_pairs, get_area)
+import Part1 (get_area)
 import Parse (parse)
 
 type Point = (Int, Int)
@@ -26,7 +26,7 @@ get_sorted_pairs (a:as) =
       x2 = max (fst a) (fst b)
       y2 = max (snd a) (snd b)
     in ((x1, y1), (x2, y2))
-    ) as ++ get_pairs as
+    ) as ++ get_sorted_pairs as
 
 get_max_area :: [(Point, Point)] -> [Edge] -> Int
 get_max_area = get_max_area_helper 0
@@ -43,9 +43,9 @@ get_max_area_helper curr_max (pair:pairs) edges =
     in_bounds = is_in_shape edges pair
 
 is_in_shape :: [Edge] -> (Point, Point) -> Bool
-is_in_shape []           _   = False
+is_in_shape []           _   = True
 is_in_shape (edge:edges) pair 
-  | out_of_bounds = True
+  | out_of_bounds = False
   | otherwise = is_in_shape edges pair
   where
     ((px1, py1), (px2, py2)) = pair
