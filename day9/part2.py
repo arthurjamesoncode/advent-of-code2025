@@ -4,7 +4,7 @@ from itertools import combinations, pairwise
 sort = lambda l: [((min(a,c),min(b,d)),(max(a,c),
                  max(b,d))) for (a,b),(c,d) in l]
 
-red = list(map(eval, open('input.txt')))
+red = list(map(eval, open('test.txt')))
 green = sort(pairwise(red + [red[0]]))
 
 a = b = 0
